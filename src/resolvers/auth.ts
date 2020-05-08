@@ -1,15 +1,7 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { LoginResponse, RegisterResponse, UserInfo, Context } from "../types";
 import { User, UserModel } from "../models";
-
-interface RegisterResponse {
-  _id: String;
-  username: String;
-}
-
-interface LoginResponse {
-  token: String;
-}
 
 export async function register(_: void, args: any): Promise<RegisterResponse> {
   const { username, password } = args;
@@ -24,14 +16,14 @@ export async function register(_: void, args: any): Promise<RegisterResponse> {
   });
   await user.save();
   return {
-    _id: user._id,
+    id: user._id,
     username: user.username,
   };
 }
 
 export async function login(_: void, args: any): Promise<LoginResponse> {
   const { username, password } = args;
-  const user = await UserModel.findOne({ username });
+  const user: User | null = await UserModel.findOne({ username });
   if (!user) {
     throw new Error("Invalid login!");
   }
@@ -49,4 +41,16 @@ export async function login(_: void, args: any): Promise<LoginResponse> {
   return {
     token,
   };
+}
+
+export async function currentUser(
+  _: void,
+  _args: any,
+  ctx: Context,
+): Promise<UserInfo> {
+  const { userInfo } = ctx;
+  if (!userInfo) {
+    throw new Error("Not authenticated!");
+  }
+  return userInfo;
 }

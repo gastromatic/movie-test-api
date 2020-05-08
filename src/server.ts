@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import { ApolloServer } from "apollo-server";
+import { getUserInfo } from "./auth";
 import typeDefs from "./schema";
 import resolvers from "./resolvers";
 
@@ -13,6 +14,9 @@ mongoose
     new ApolloServer({
       typeDefs,
       resolvers,
+      context: ({ req }) => ({
+        userInfo: getUserInfo(req.headers.authorization || ""),
+      }),
     }).listen(3000),
   )
   .then(() => {

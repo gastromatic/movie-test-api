@@ -1,10 +1,12 @@
-import { register, login } from "./auth";
+import { currentUser, register, login } from "./auth";
 
 const resolverMap = {
-  Query: {},
+  Query: {
+    currentUser,
+  },
   Mutation: {
-    register,
     login,
+    register,
   },
 };
 
