@@ -5,7 +5,7 @@ import typeDefs from "./schema";
 import resolvers from "./resolvers";
 
 mongoose
-  .connect("mongodb://localhost:27017/movies", {
+  .connect("mongodb://mongodb:27017/movies", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })

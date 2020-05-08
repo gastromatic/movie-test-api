@@ -2,12 +2,13 @@
   "name": "@gastromatic/movie-test-api",
   "private": true,
   "license": "ISC",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "dist/server.js",
   "author": "",
   "scripts": {
     "start": "ts-node src/server.ts",
+    "build": "tsc",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },

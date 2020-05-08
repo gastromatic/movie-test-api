@@ -9,7 +9,7 @@ export async function register(_: void, args: any): Promise<RegisterResponse> {
   if (existingUser) {
     throw new Error("Username already used!");
   }
-  const hashedPassword: String = await bcrypt.hash(password, 10);
+  const hashedPassword: string = await bcrypt.hash(password, 10);
   const user: User = new UserModel({
     username,
     password: hashedPassword,
@@ -52,5 +52,12 @@ export async function currentUser(
   if (!userInfo) {
     throw new Error("Not authenticated!");
   }
-  return userInfo;
+  const user: User | null = await UserModel.findOne({ _id: userInfo.id});
+  if(!user) {
+    throw new Error("Not authenticated!");
+  }
+  return {
+    id: user._id,
+    username: user.username
+  };
 }
