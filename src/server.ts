@@ -1,11 +1,24 @@
 import mongoose from "mongoose";
+import yargs from "yargs";
 import { ApolloServer } from "apollo-server";
 import { getUserInfo } from "./auth";
 import typeDefs from "./schema";
 import resolvers from "./resolvers";
 
+const args = yargs
+  .option("mongo-uri", {
+    describe: "Mongo URI",
+    default: "mongodb://localhost:27017/movies",
+    type: "string",
+    group: "Mongo",
+  }).argv;
+
+console.log(args)
+
+console.log(args["mongo-uri"]);
+
 mongoose
-  .connect("mongodb://mongodb:27017/movies", {
+  .connect(args["mongo-uri"], {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
