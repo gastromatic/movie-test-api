@@ -1,0 +1,27 @@
+{
+  "name": "@gastromatic/movie-test-api",
+  "private": true,
+  "license": "ISC",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "author": "",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "@types/node": "^12.12.31",
+    "apollo-server": "^2.13.0",
+    "graphql": "^15.0.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.1.4",
+    "jest": "^25.1.0",
+    "prettier": "^2.0.2",
+    "ts-jest": "^25.2.1"
+  }
+}
