@@ -13,29 +13,27 @@ const args = yargs
     group: "Mongo",
   }).argv;
 
-console.log(args)
+async function start() {
+  try {
+    await mongoose .connect(args["mongo-uri"], {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+    })
+    console.log("Connected to DB.");
 
-console.log(args["mongo-uri"]);
-
-mongoose
-  .connect(args["mongo-uri"], {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  })
-  .then(() => console.log("Connected to DB."))
-  .then(() =>
-    new ApolloServer({
+    await new ApolloServer({
       typeDefs,
       resolvers,
       context: ({ req }) => ({
         userInfo: getUserInfo(req.headers.authorization || ""),
       }),
-    }).listen(3000),
-  )
-  .then(() => {
+    }).listen(3000)
     console.log("GraphQl API running on port 3000.");
-  })
-  .catch((err: any) => {
+  }catch(err) {
     console.error(err);
     process.exit(1);
-  });
+  }
+}
+
+start();
+
