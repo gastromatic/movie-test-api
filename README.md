@@ -23,5 +23,3 @@ docker-compose up
 ```
 
 Test running server by accessing `http://localhost:3000/`
-
-

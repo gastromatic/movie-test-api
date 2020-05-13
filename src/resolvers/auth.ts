@@ -52,12 +52,12 @@ export async function currentUser(
   if (!userInfo) {
     throw new Error("Not authenticated!");
   }
-  const user: User | null = await UserModel.findOne({ _id: userInfo.id});
-  if(!user) {
+  const user: User | null = await UserModel.findOne({ _id: userInfo.id });
+  if (!user) {
     throw new Error("Not authenticated!");
   }
   return {
     id: user._id,
-    username: user.username
+    username: user.username,
   };
 }

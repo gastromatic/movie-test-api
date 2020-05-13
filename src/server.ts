@@ -5,20 +5,19 @@ import { getUserInfo } from "./auth";
 import typeDefs from "./schema";
 import resolvers from "./resolvers";
 
-const args = yargs
-  .option("mongo-uri", {
-    describe: "Mongo URI",
-    default: "mongodb://localhost:27017/movies",
-    type: "string",
-    group: "Mongo",
-  }).argv;
+const args = yargs.option("mongo-uri", {
+  describe: "Mongo URI",
+  default: "mongodb://localhost:27017/movies",
+  type: "string",
+  group: "Mongo",
+}).argv;
 
 async function start() {
   try {
-    await mongoose .connect(args["mongo-uri"], {
+    await mongoose.connect(args["mongo-uri"], {
       useUnifiedTopology: true,
       useNewUrlParser: true,
-    })
+    });
     console.log("Connected to DB.");
 
     await new ApolloServer({
@@ -27,13 +26,12 @@ async function start() {
       context: ({ req }) => ({
         userInfo: getUserInfo(req.headers.authorization || ""),
       }),
-    }).listen(3000)
+    }).listen(3000);
     console.log("GraphQl API running on port 3000.");
-  }catch(err) {
+  } catch (err) {
     console.error(err);
     process.exit(1);
   }
 }
 
 start();
-
