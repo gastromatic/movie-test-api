@@ -32,7 +32,7 @@ Your main task is to develop an online movie library on which users can share th
 * Sign up/ login page for user management
 * Add, delete and edit movies
 * Users should be able to rate movies with comments (1-5 stars). A user should only be able rate a movie once.
-* Main Dashboard to show all movies which are stored in the database with following information:
+* Main Dashboard to show all movies as a table which are stored in the database with following information:
   *  Name
   *  Release date
   *  Duration
