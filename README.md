@@ -51,7 +51,7 @@ Use this repo as a teamplate for the API of the movie application which you can 
 * ReactJs (Appollo client or other GraphQL client)
 
 ## Important To-Dos:
-* Please share the code via github (other repository hosting service) or zip file.
+* Please share the code via github (other repository hosting service) or zip file. You can copy or fork this repo to extend the server functionality.
 * The project should be easy to build and execute. The steps to run the projects should be explained in a read me file.
 * All needed libraries should be installed over package managers (npm or yarn).
 * Please write unit tests for two functions of your choice. Use Jest as a testing framework.
