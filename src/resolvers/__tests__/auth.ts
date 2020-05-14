@@ -45,7 +45,7 @@ describe("Test register", () => {
   });
 });
 
-describe("Test register", () => {
+describe("Test login", () => {
   it("should throw error if user for username does not exist", async () => {
     let error;
     try {
