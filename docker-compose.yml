@@ -1,0 +1,14 @@
+version: "3"
+services:
+  graphapi:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+    command:
+      - "--mongo-uri=mongodb://mongodb:27017/movies"
+  mongodb:
+    image: "mongo"
+    ports:
+      - "27017:27017"

@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es2019",
+    "module": "commonjs",
+    "lib": ["es2020"],
+    "allowJs": false,
+    "outDir": "./dist",
+    "strict": true,
+
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "include": ["src"],
+  // For the base config, exclude jest tests
+  // ts-jest takes care of making sure they're built
+  "exclude": ["src/**/__tests__"]
+}
