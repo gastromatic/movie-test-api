@@ -1,4 +1,4 @@
-FROM node:13.12
+FROM node:18
 WORKDIR /usr/src/app
 
 COPY tsconfig.json package.json package-lock.json ./
