@@ -2,20 +2,44 @@
 
 GraphQl API for gastromatic movie test
 
-## Setup Without Docker
+_Instructions are written for linux operating systems in mind, the Docker setup might not work properly on windows_
 
-Have a mongodb running at the usual `localhost:27017`. Then:
+# Develop
+
+## Prerequisites
+
+- MongoDB running on localhost:27017
+- NodeJS (version ~18)
+
+## Start backend
 
 ```
-npm ci
+npm i
 npm run start
 ```
 
 Test running server by accessing `http://localhost:3000/`
 
-## Setup with Docker
+## Start frontend
 
-Docker and docker-compose need to be installed. To start the services run
+```
+cd frontend
+npm i
+npm run start
+```
+
+The browser will open the frontend located at1: `http://localhost:3001/`
+
+# Start backend with docker
+
+Not suited for development, on every change the docker image needs to be rebuild.
+
+## Prerequisites
+
+- Install Docker
+- Install docker-compose
+
+## Start
 
 ```
 docker-compose build
