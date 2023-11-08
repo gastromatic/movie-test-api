@@ -4,7 +4,7 @@ const typeDef = `
         username: String!
     }
 
-    type Query {
+    extend type Query {
         currentUser: User!
     }
 
@@ -13,7 +13,7 @@ const typeDef = `
         user: User
     }
 
-    type Mutation {
+    extend type Mutation {
         register(username: String!, password: String!): User!
         login(username: String!, password: String!): LoginResponse!
     }    

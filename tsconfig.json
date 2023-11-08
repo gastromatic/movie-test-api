@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "target": "es2019",
     "module": "commonjs",
-    "lib": ["es2020"],
+    "lib": ["es2020", "DOM"],
     "allowJs": false,
     "outDir": "./dist",
     "strict": true,
